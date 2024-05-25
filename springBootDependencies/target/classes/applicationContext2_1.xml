@@ -1,0 +1,40 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/context
+                   http://www.springframework.org/schema/context/spring-context.xsd">
+
+                <bean id="starter" class="springIntroduce2.Starter" />
+                <bean id="hinge" class="springIntroduce2.Hinge" />
+
+
+                <bean id="engine" class="springIntroduce2.Engine">
+                        <constructor-arg ref="starter" />
+                </bean>
+
+<!--                <bean id="car" class="springIntroduce2.Car">-->
+<!--                        <constructor-arg ref="engine,spark" />-->
+<!--                </bean>-->
+
+
+    <bean id="car" class="springIntroduce2.Car">
+        <constructor-arg ref="engine" />
+        <constructor-arg ref="spark" />
+    </bean>
+
+                <bean id="spark" class="springIntroduce2.Spark">
+                        <constructor-arg ref="hinge" />
+                </bean>
+
+
+<!--                <bean id="starter" class="springIntroduce2_false.Starter">-->
+<!--                        <constructor-arg ref="code" />-->
+<!--                </bean>-->
+
+<!--                <bean id="hinge" class="springIntroduce2_false.Hinge">-->
+<!--                        <constructor-arg ref="code" />-->
+<!--                </bean>-->
+
+</beans>

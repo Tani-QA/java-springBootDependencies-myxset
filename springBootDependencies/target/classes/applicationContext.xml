@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <bean id="starter" class="springIntroduce.Starter" />
+        <bean id="hinge" class="springIntroduce.Hinge" />
+        <bean id="spark" class="springIntroduce.Spark">
+                <constructor-arg ref="hinge" />
+        </bean>
+        <bean id="engine" class="springIntroduce.Engine">
+                <constructor-arg ref="starter" />
+        </bean>
+        <bean id="car" class="springIntroduce.Car">
+                <constructor-arg ref="engine" />
+        </bean>
+</beans>
